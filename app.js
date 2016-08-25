@@ -1,6 +1,14 @@
 var express = require('express');
 var app = express();
+var io = require('socket.io')(http);
 
+io.on('connection', function(socket) {
+  console.log('new connection');
+
+  socket.on('message', function(msg){
+    console.log('Got message from client: ' + msg);
+  });
+});
 
 app.use(express.static('public'));
 

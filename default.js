@@ -1,9 +1,14 @@
 var board;
 var game;
+var socket = io();
 
 window.onload = function () {
     initGame();
 };
+
+window.onclick = function(e) {
+  socket.emit('message', 'hello world!');
+}
 
 var initGame = function() {
    var cfg = {

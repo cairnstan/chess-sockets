@@ -8,10 +8,6 @@ window.onload = function () {
     initGame();
 };
 
-window.onclick = function(e) {
-  socket.emit('message', 'hello world!');
-}
-
 var initGame = function() {
    var cfg = {
        draggable: true,

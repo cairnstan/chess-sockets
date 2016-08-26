@@ -1,12 +1,14 @@
 var express = require('express');
 var app = express();
+//setup my ocket server
 var io = require('socket.io')(http);
 
 io.on('connection', function(socket) {
   console.log('new connection');
 
-  socket.on('message', function(msg){
-    console.log('Got message from client: ' + msg);
+  //calles when client calls socekt.emit('move')
+  socket.on('move', function(msg){
+    socket.broadcast.emit('move', msg);
   });
 });
 
